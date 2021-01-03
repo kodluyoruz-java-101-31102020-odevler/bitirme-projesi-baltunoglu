@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>KÜTÜPHANEM</title>
+</head>
+<body>
+<div align="center">
+	<h1>KÜTÜPHANEM</h1>
+	<a href="new">YENİ KİTAP EKLE</a>
+	<a href="new">KİTAP ARAMA</a>
+	<br/><br/>
+	<table border="1" cellpadding="10">
+		<thread>
+			<tr>
+				<th>Kayıt Numarası</th>
+				<th>Kitap İsmi</th>
+				<th>Basım Yılı</th>
+				<th>Açıklama</th>
+				<th>Yazar</th>
+				<th>Not</th>
+				<th>Eylem</th>
+			</tr>
+		</thread>
+		<tbody>
+			<tr th:each="book : ${listBook}">
+				<td th:text="${book.book_id}">Kayıt Numarası</td>
+				<td th:text="${book.book_title}">Kitap İsmi</td>
+				<td th:text="${book.book_year}">Basım Yılı</td>
+				<td th:text="${book.book_comment}">Açıklama</td>
+				<td th:text="${book.book_author}">Yazar</td>
+				<td th:text="${book.book_notes}">Not</td>
+				<td>
+					<a th:href="@{'/edit/' + ${book.book_id}}">Düzenle</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a th:href="@{'/remove/' + ${book.book_id}}">Kaldır</a>
+				</td>
+			</tr>			
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Kitabı Düzenle</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Kitabı Düzenle</h1>
+		<br/>
+		<form action="#" th:action="@{/save}" th:object="${book}" method="post">
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Kayıt Numarası:</td>
+					<td><input type="text" th:field="*{book_id}" readonly="readonly"></td>
+				</tr>	
+				<tr>
+					<td>Kitap İsmi:</td>
+					<td><input type="text" th:field="*{book_title}"></td>
+				</tr>
+				<tr>
+					<td>Basım Yılı:</td>
+					<td><input type="text" th:field="*{book_year}"></td>
+				</tr>
+				<tr>
+					<td>Açıklama:</td>
+					<td><input type="text" th:field="*{book_comment}"></td>
+				</tr>
+				<tr>
+					<td>Yazar:</td>
+					<td><input type="text" th:field="*{book_author}"></td>
+				</tr>
+				<tr>
+					<td>Not:</td>
+					<td><input type="text" th:field="*{book_notes}"></td>
+				</tr>
+				<tr>
+					<td colspan="2"><button type="submit">Kaydet</button></td>
+				</tr>
+			</table>
+		</form>
+</body>
+</html>
